@@ -1,5 +1,7 @@
 module Main exposing (..)
 
+-- import Debug exposing (log)
+
 import Html exposing (Html, button, div, text)
 import Html.App as Html
 import Html.Events exposing (onClick)
@@ -8,35 +10,51 @@ import Html.Events exposing (onClick)
 main : Program Never
 main =
     Html.beginnerProgram
-        { model = 0
+        { model = model
         , view = view
         , update = update
         }
 
 
 type alias Model =
-    Int
+    { counter : Int }
 
 
 type Msg
     = Increment
     | Decrement
+    | Reset
+
+
+model : Model
+model =
+    { counter = 0 }
 
 
 update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
-            model + 1
+            { model
+                | counter = model.counter + 1
+            }
 
         Decrement ->
-            max 0 (model - 1)
+            { model
+                | counter = model.counter - 1 |> max 0
+            }
+
+        Reset ->
+            { model
+                | counter = 0
+            }
 
 
-view : a -> Html Msg
+view : Model -> Html Msg
 view model =
     div []
-        [ button [ onClick Decrement ] [ text "-" ]
-        , div [] [ text (toString model) ]
-        , button [ onClick Increment ] [ text "+" ]
+        [ div [] [ text (toString model) ]
+        , button [ onClick Reset ] [ text "reset" ]
+        , button [ onClick Decrement ] [ text "- decr" ]
+        , button [ onClick Increment ] [ text "+ incr" ]
         ]
