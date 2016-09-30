@@ -1,15 +1,13 @@
-module Main exposing (..)
-
--- import Debug exposing (log)
+module Main exposing (main)
 
 import Html exposing (Html, button, div, text)
-import Html.App as Html
+import Html.App exposing (beginnerProgram)
 import Html.Events exposing (onClick)
 
 
 main : Program Never
 main =
-    Html.beginnerProgram
+    beginnerProgram
         { model = model
         , view = view
         , update = update
