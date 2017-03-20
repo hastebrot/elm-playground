@@ -1,14 +1,13 @@
-module Main exposing (test)
+module Main exposing (..)
 
-import Json.Decode exposing (int, string, float, Decoder)
-import Json.Decode.Pipeline exposing (decode, required, optional, hardcoded, nullable)
+import Json.Decode exposing (int, string, null, oneOf, Decoder)
+import Json.Decode.Pipeline exposing (decode, required, optional)
 
 
 type alias User =
     { id : Int
-    , email : Maybe String
     , name : String
-    , percentExcited : Float
+    , email : String
     }
 
 
@@ -16,15 +15,14 @@ userDecoder : Decoder User
 userDecoder =
     decode User
         |> required "id" int
-        |> required "email" (nullable string)
         |> optional "name" string "(fallback)"
-        |> hardcoded 1.0
+        |> required "email" string
 
 
-test : Result String User
-test =
+result : Result String User
+result =
     Json.Decode.decodeString
         userDecoder
         """
-            {"id": 123, "email": "sam@example.com", "name": "Sam Sample"}
+            {"id": 123, "email": "sam@example.com" }
         """
