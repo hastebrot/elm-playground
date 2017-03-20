@@ -65,36 +65,6 @@ hypotenuse a b =
   - for `map` use `List.map`, `Dict.map`, ...
 - BSD licence (3-clause)
 
-<!--
-#VSLIDE
-
-- evaluate the same expression with the same arguments, and returns always the same value
-- nice for testing, reuse, reproducibility, ...
-- Amr Sabry, 1993
-- Graham Hutton, http://stackoverflow.com/questions/4382223/what-does-pure-mean-in-pure-functional-language
-
->Computational effects are things like non-termination, exceptions, state, input/output, continuations, non-determinism, and others.
->http://math.andrej.com/2008/11/17/not-all-computational-effects-are-monads/
--->
-
-<!--
-#VSLIDE
-
->3.1. Purity
->
->What is a "purely functional" programming language?
->
->This question has been the subject of some debate in the functional programming community. It is widely agreed that languages such as Haskell and Miranda are "purely functional", while SML and Scheme are not. However, there are some small differences of opinion about the precise technical motivation for this distinction. One definition that has been suggested is as follows:
->
->The term "purely functional" is often used to describe languages that perform all their computations via function application. This is in contrast to languages, such as Scheme and Standard ML, that are predominantly functional but also allow `side effects' (computational effects caused by expression evaluation that persist after the evaluation is completed).
->Sometimes, the term "purely functional" is also used in a broader sense to mean languages that might incorporate computational effects, but without altering the notion of `function' (as evidenced by the fact that the essential properties of functions are preserved.) Typically, the evaluation of an expression can yield a `task', which is then executed separately to cause computational effects. The evaluation and execution phases are separated in such a way that the evaluation phase does not compromise the standard properties of expressions and functions. The input/output mechanisms of Haskell, for example, are of this kind.
->
->See also:
->"What is a purely functional language", Amr Sabry, Journal of Functional Programming, 8(1):1-22, Cambridge University Press, January 1998.
-
-&mdash; http://www.cs.nott.ac.uk/~pszgmh/faq.html#purity
--->
-
 #VSLIDE
 
 - pure functional: Haskell, Elm, PureScript, Idris
@@ -174,11 +144,7 @@ $ yarn global add elm elm-oracle elm-format elm-test
 ~~~
 
 - Visual Studio Code
-  - ext install elm
-
-- https://github.com/sbrink/vscode-elm
-- https://github.com/avh4/elm-format
-- https://github.com/ElmCast/elm-oracle
+  - `ext install elm`
 
 #HSLIDE
 
@@ -190,6 +156,10 @@ $ yarn global add elm elm-oracle elm-format elm-test
 - Lists
 - Tuples
 - Records
+
+Links:
+- https://guide.elm-lang.org/core_language.html
+- https://learnxinyminutes.com/docs/elm/
 
 #VSLIDE
 
@@ -367,16 +337,26 @@ False
 { age = 22, name = "Gates" }
 ~~~
 
-#VSLIDE
-
-- https://guide.elm-lang.org/core_language.html
-- https://learnxinyminutes.com/docs/elm/
-
 #HSLIDE
 
 ## Core Libraries
 
-- http://package.elm-lang.org/packages/elm-lang/core/latest/
+~~~elm
+import Basics exposing (..)
+import List exposing ( List, (::) )
+import Maybe exposing ( Maybe( Just, Nothing ) )
+import Result exposing ( Result( Ok, Err ) )
+import String
+import Tuple
+
+import Debug
+
+import Platform exposing ( Program )
+import Platform.Cmd exposing ( Cmd, (!) )
+import Platform.Sub exposing ( Sub )
+~~~
+
+&mdash; http://package.elm-lang.org/packages/elm-lang/core/latest/
 
 #VSLIDE
 
@@ -530,6 +510,8 @@ People:
 - https://github.com/evancz (Evan Czaplicki)
 - https://github.com/rtfeldman (Richard Feldman)
 
+#VSLIDE
+
 Webpages:
 - https://github.com/hastebrot/elm-playground
   - https://gitpitch.com/hastebrot/elm-playground/slides
@@ -540,8 +522,14 @@ Webpages:
   - https://github.com/evancz/elm-todomvc
 - http://package.elm-lang.org/packages/elm-lang/core/latest
   - https://github.com/elm-lang/core/
+
+#VSLIDE
+
+Videos:
 - elm-conf Channel, https://www.youtube.com/channel/UCOpGiN9AkczVjlpGDaBwQrQ
   - "Making Impossible States Impossible" by Richard Feldman, https://www.youtube.com/watch?v=IcgmSRJHu_8
+
+#VSLIDE
 
 Tools:
 - https://github.com/avh4/elm-format
