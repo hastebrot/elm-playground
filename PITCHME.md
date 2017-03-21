@@ -522,6 +522,7 @@ Webpages:
   - https://github.com/evancz/elm-todomvc
 - http://package.elm-lang.org/packages/elm-lang/core/latest
   - https://github.com/elm-lang/core/
+- https://github.com/isRuslan/awesome-elm
 
 #VSLIDE
 
