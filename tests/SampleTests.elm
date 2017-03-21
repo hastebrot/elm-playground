@@ -1,19 +1,19 @@
-module Tests exposing (..)
+module SampleTests exposing (..)
 
 import Test exposing (Test, describe, test)
 import Expect
 import String
 
 
-all_ : Test
-all_ =
+tests : Test
+tests =
     describe "Sample Test Suite"
-        [ test "Addition" <|
+        [ test "plus operator" <|
             \() -> Expect.equal 10 (3 + 7)
-        , test "String.left" <|
-            \() -> Expect.equal "a" (String.left 1 "abcdefg")
-        , test "add function" <|
+        , test "plus function" <|
             \() -> Expect.equal 4 (plus 1 3)
+        , test "string left" <|
+            \() -> Expect.equal "a" (String.left 1 "abcdefg")
         ]
 
 
