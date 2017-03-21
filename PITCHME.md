@@ -16,7 +16,7 @@ elm =
 ~~~elm
 hypotenuse : Float -> Float -> Float
 hypotenuse a b =
-    sqrt <| a^2 + b^2
+    sqrt (a^2 + b^2)
 ~~~
 
 #VSLIDE
@@ -28,10 +28,9 @@ hypotenuse a b =
 1. [Features](#features)
 2. [History](#history)
 3. [Platform](#platform)
-4. [Editor and tools](#editor-and-tools)
-5. [Core Language](#core-language)
-6. [Core Libraries](#core-libraries)
-7. [The Elm Architecture](#the-elm-architecture)
+4. [Core Language](#core-language)
+5. [Core Libraries](#core-libraries)
+6. [The Elm Architecture](#the-elm-architecture)
 
 <!-- /TOC -->
 
@@ -76,22 +75,22 @@ hypotenuse a b =
 
 Evan Czaplicki
 - 2012, Harvard University
-  - "Elm: Concurrent FRP for Functional GUIs"
+> "Elm: Concurrent FRP for Functional GUIs"
 - 2013, Prezi
-  - "presentation software that uses motion, zoom, and spatial relationships to bring your ideas to life and make you a great presenter
+> "presentation software that uses motion, zoom, and spatial relationships to bring your ideas to life and make you a great presenter
 - 2016, NoRedInk
-  - "A fun way to practice and master grammar & writing skills!"
+> "A fun way to practice and master grammar & writing skills!"
 
 #VSLIDE
 
 ### History (cont'd)
 
-- 0.18, New debugger with session import/export (Nov 2016)
-- 0.15.1, Dramatically improved error messages (Jun 2015)
-- 0.14, Package manager, parallel builds, JSON (Dec 2014)
-- 0.12.1, Fast Immutable Arrays (May 2014)
+- 0.18 | Nov 2016 | New debugger with session import/export
+- 0.15.1 | Jun 2015 | Dramatically improved error messages
+- 0.14 | Dec 2014 | Package manager, parallel builds, JSON
+- 0.12.1 | May 2014 | Fast Immutable Arrays
 
-&mdash; http://elm-lang.org/blog#release-notes
+<small>&mdash; http://elm-lang.org/blog#release-notes</small>
 
 #HSLIDE
 
@@ -103,7 +102,7 @@ Evan Czaplicki
 - `elm-repl`
 - `elm-package`
 
-&mdash; https://github.com/elm-lang/elm-platform#elm-platform
+<small>&mdash; https://github.com/elm-lang/elm-platform#elm-platform</small>
 
 #VSLIDE
 
@@ -115,7 +114,7 @@ $ cd elm-playground
 $ elm-reactor
 ~~~
 
-- Browser: http://localhost:8000
+Browser: http://localhost:8000
 
 #VSLIDE
 
@@ -136,15 +135,25 @@ $ elm package diff elm-lang/html 1.1.0 2.0.0
 
 #VSLIDE
 
-## Editor and tools
+### Platform
 
 ~~~
-$ npm install -g elm elm-oracle elm-format elm-test
-$ yarn global add elm elm-oracle elm-format elm-test
+$ npm install -g elm elm-test
 ~~~
 
-- Visual Studio Code
-  - `ext install elm`
+### Tools
+
+~~~
+$ npm install -g elm-format elm-oracle
+~~~
+
+### Editor
+
+Visual Studio Code:
+
+~~~
+ext install elm
+~~~
 
 #HSLIDE
 
@@ -157,9 +166,7 @@ $ yarn global add elm elm-oracle elm-format elm-test
 - Tuples
 - Records
 
-Links:
-- https://guide.elm-lang.org/core_language.html
-- https://learnxinyminutes.com/docs/elm/
+<small>&mdash; https://guide.elm-lang.org/core_language.html</small>
 
 #VSLIDE
 
@@ -356,7 +363,7 @@ import Platform.Cmd exposing ( Cmd, (!) )
 import Platform.Sub exposing ( Sub )
 ~~~
 
-&mdash; http://package.elm-lang.org/packages/elm-lang/core/latest/
+<small>&mdash; http://package.elm-lang.org/packages/elm-lang/core/latest/</small>
 
 #VSLIDE
 
@@ -399,16 +406,19 @@ main =
 
 #VSLIDE
 
-- The Basic Pattern
-  - Model &mdash; the state of your application
-  - Update &mdash; a way to update your state
-  - View &mdash; a way to view your state as HTML
+### The Basic Pattern
 
-The Elm Architecture is a simple pattern for architecting webapps. The core idea is that your code is built around a Model of your application state, a way to update your model, and a way to view your model.
+- Model &mdash; the state of your application
+- Update &mdash; a way to update your state
+- View &mdash; a way to view your state as HTML
 
-&mdash; TodoMVC (https://github.com/evancz/elm-todomvc)
+>The Elm Architecture is a simple pattern for architecting webapps. The core idea is that your code is built around a Model of your application state, a way to update your model, and a way to view your model.
+
+<small>&mdash; TodoMVC (https://github.com/evancz/elm-todomvc)</small>
 
 #VSLIDE
+
+### Program with simple model
 
 ~~~elm
 import Html exposing (Html, button, div, text)
@@ -436,6 +446,8 @@ view model =
 ~~~
 
 #VSLIDE
+
+### Program with record model
 
 ~~~elm
 module Main exposing (main)
@@ -501,6 +513,12 @@ view model =
 
 ### Links
 
+Playground:
+- https://github.com/hastebrot/elm-playground
+  - https://gitpitch.com/hastebrot/elm-playground/slides
+
+#VSLIDE
+
 Organizations:
 - https://github.com/elm-lang
 - https://github.com/elm-community
@@ -513,8 +531,6 @@ People:
 #VSLIDE
 
 Webpages:
-- https://github.com/hastebrot/elm-playground
-  - https://gitpitch.com/hastebrot/elm-playground/slides
 - https://github.com/elm-lang/elm-platform#elm-platform
   - http://elm-lang.org/blog#release-notes
 - https://guide.elm-lang.org/
